@@ -43,6 +43,6 @@ const { data, error } = await useAsyncData(
     }
 
 
-// navigateTo('/')
+navigateTo('/')
 
 </script>
