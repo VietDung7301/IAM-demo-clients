@@ -13,12 +13,21 @@
 				<ul class="flex space-x-8 font-sans">
 					<li><a href="#" class="active border-b-2 border-blue-500 pb-1">Home</a></li>
 					<li><a href="#" class="">Services</a></li>
-					<li><a href="#" class="">Features</a></li>
+					<li><NuxtLink to="/student-list">Information</NuxtLink></li>
 					<li><a href="#" class="">FAQ</a></li>
 					<li><a href="#" class="">Contact</a></li>
 				</ul>
 			</div>
-			<div class="md:block w-48">
+			<div v-if="signed_on" class="md:block w-48">
+				<ul class="flex space-x-2">
+					<li><NuxtLink to="/logout"
+							class="cta border-blue-500 border hover:bg-slate-50 px-3 py-2 rounded text-blue font-semibold"
+							>
+							Sign Out
+					</NuxtLink></li>
+				</ul>
+			</div>
+			<div v-else class="md:block w-48">
 				<ul class="flex space-x-2">
 					<li><nuxtLink to="/login"
 						class="cta border-blue-500 border hover:bg-slate-50 px-3 py-2 rounded text-blue font-semibold"
@@ -36,6 +45,22 @@
 	</div>
 </template>
 <script setup>
+let access_token = useCookie('access_token', {
+	default: () => {},
+	watch: true
+})
+let refresh_token = useCookie('refresh_token', {
+	default: () => {},
+	watch: true
+})
+
+let signed_on = false;
+
+if (access_token.value) {
+	signed_on = true
+}
+
+
 const config = useRuntimeConfig()
 const AUTH_SERVER = `${config.public.AUTH_SERVER}/login`
 const handle_login_with_iam = () => {

@@ -29,7 +29,6 @@ if (params.code) {
 				client_id: config.public.CLIENT_ID,
 				redirect_uri: config.public.REDIRECT_URI,
 				grant_type: 'authorization_code',
-				user_id: '123'
 			})
 		})
 	)
@@ -53,6 +52,7 @@ if (params.code) {
 
 			iframe.contentWindow.postMessage(token_message, '*');
 		}
+		navigateTo('/')
 	}
 } else if (params.access_token) {
 	console.log('chay vao day roi')
@@ -67,5 +67,6 @@ if (params.code) {
 			}
 		};
 	}
+	navigateTo('/')
 }
 </script>

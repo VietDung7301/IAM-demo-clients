@@ -96,6 +96,7 @@ const handle_iam_sign_on = async () => {
 			response_type: config.public.OAUTH_RESPONSE_TYPE,
 			client_id: config.public.CLIENT_ID,
 			redirect_uri: config.public.REDIRECT_URI,
+			scope: config.public.IAM_SCOPES,
 		}
 	}, {
 		external: true
