@@ -1,6 +1,6 @@
 <template>
-	<iframe id="save-iframe" src="http://localhost:3000/login/save_token" title="iam"></iframe>
-	<iframe id="get-iframe" src="http://localhost:3000/login/send_token" title="iam"></iframe>
+	<iframe id="save-iframe" :src=config.public.SAVE_TOKEN_ENDPOINT title="iam"></iframe>
+	<iframe id="get-iframe" :src=config.public.GET_TOKEN_ENDPOINT title="iam"></iframe>
 </template>
 <script setup>
 const config = useRuntimeConfig()

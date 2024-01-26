@@ -7,6 +7,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       AUTHORIZATION_ENDPOINT: process.env.AUTHORIZATION_ENDPOINT,
+      SAVE_TOKEN_ENDPOINT: process.env.SAVE_TOKEN_ENDPOINT,
+      GET_TOKEN_ENDPOINT: process.env.GET_TOKEN_ENDPOINT,
       TOKEN_ENDPOINT: process.env.TOKEN_ENDPOINT,
       OAUTH_RESPONSE_TYPE: 'code',
       REDIRECT_URI: process.env.LOGIN_CALLBACK,
